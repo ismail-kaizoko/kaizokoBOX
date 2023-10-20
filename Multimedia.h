@@ -7,7 +7,7 @@
 
 using namespace std;
  
-class Multimedia{
+class Multimedia {
 
 private:
     string name{};

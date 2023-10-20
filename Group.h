@@ -12,7 +12,7 @@
 
 // using TrucPtr = std::shared_ptr<Truc> ;
 
-class Group : public std::lisp< Multimedia *> {
+class Group : public std::list< Multimedia *> {
     private:
     std::string name{};
     
