@@ -1,39 +1,44 @@
 #ifndef GROUP_HH
 #define GROUP_HH
 
-#include "Multimedia.h" // is it necessary if we its subclasses ?
+#include "Multimedia.h" // is it necessary if we include its subclasses ?
 
 #include "Picture.h"
 #include "Video.h"
 #include "Film.h"
+#include<iostream>
 
-#include <iostream>
+#include <list>
+#include <memory>
 
 
-// using TrucPtr = std::shared_ptr<Truc> ;
 
-class Group : public std::list< Multimedia *> {
+
+using MultimediaPtr = std::shared_ptr<Multimedia>;
+
+class Group : public std::list<MultimediaPtr> {
     private:
     std::string name{};
     
     public:
-    
+    std::string getName() const{return name;}
+
     void display(ostream & out) const {
         int i = 0;
         for (auto & it : *this) {
-            cout << "Information about element" << i;
+            std::string groupName = this->getName();
+            out << "This is the Group : " <<  groupName<< endl;
+            out << "Information about element : " << i <<endl;
             it->display(out); 
-            out << endl << endl ;
             i++;
         }
+            out << endl << endl ;
     }
 
     std::string getGroupName() const {return name;}
 
 
 };
-
-
 
 
 

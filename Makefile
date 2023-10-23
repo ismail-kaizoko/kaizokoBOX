@@ -9,7 +9,7 @@
 #
 # Nom du programme
 #
-PROG = myprog
+PROG = box
 
 #
 # Fichiers sources (NE PAS METTRE les .h ni les .o seulement les .cpp)

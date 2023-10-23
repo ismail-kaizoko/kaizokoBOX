@@ -13,7 +13,7 @@ Multimedia::Multimedia(string name, string pathName){
     this->pathName = pathName;
 }
 
-Multimedia::~Multimedia(){};
+Multimedia::~Multimedia(){cout << "I will die now :' . " ;};
 
 
 

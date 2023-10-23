@@ -15,7 +15,7 @@ class Picture : public Multimedia {
     float getLength()      const {return length;}
     float getWidth()       const {return width;}
 
-    void play() const override { 
+    void play() const override {
         string path = this->getPathName();
         system( ("imagej " + path + " &").data()  );
         } 

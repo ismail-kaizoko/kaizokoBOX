@@ -5,7 +5,11 @@
 
 #include <iostream>
 
-using namespace std;
+using VideoSmartSPtr   = std::shared_ptr<Video>;
+using PictureSmartSPtr = std::shared_ptr<Picture>;
+using FilmSmartSPtr    =std::shared_ptr<Film>;
+
+
 
 void display(int n, const int * tab);
 
@@ -48,19 +52,40 @@ int main(int argc, const char* argv[])
 */
 
     int duration[5] = {0,7,10,15,20};
-    Film * film = new Film("movie", "/home/movie.mkv", 20, 5, duration);
+    FilmSmartSPtr film(new Film("movie", "/home/movie.mkv", 20, 5, duration) ) ;
 
-    Picture * pic1 = new Picture("cpp_pic", "/home/ismail/Pictures/cpp_pic.png", 256, 256);
-    Picture * pic2 = new Picture("pic2", "/home/ismail/Pictures/lana.jpg", 255, 255);
-    Video * vid = new Video("lana", "/home/ismail/Videos/video.mp4", 30);
+    PictureSmartSPtr pic1(new Picture("cpp_pic", "/home/ismail/Pictures/cpp_pic.png", 256, 256) );
+    PictureSmartSPtr pic2(new Picture("pic2", "/home/ismail/Pictures/lana.jpg", 255, 255) ); 
+    VideoSmartSPtr   vid(new Video("lana", "/home/ismail/Videos/video.mp4", 30) ); 
 
-    Group * videos = new Group(){film, vid};
-    Group * dataset = new Group(){film, pic1, pic2, vid};
-    Group * pics = new Group(){pic1, pic2};
+    Group * videos = new Group();
+    videos->push_back(film);
+    videos->push_back(vid);
 
-    videos->display();
-    dataset->display();
-    pics->display();
+    Group * dataset = new Group();
+    dataset->push_back(film);
+    dataset->push_back(pic1);
+    dataset->push_back(pic2);
+    dataset->push_back(vid);
+
+    Group * pics = new Group();
+    pics->push_back(pic1);
+    pics->push_back(pic2);
+
+
+    videos->display(cout);
+    dataset->display(cout);
+    pics->display(cout);
+
+    // test the smart pointer. 
+
+    videos->pop_back();
+    dataset->pop_back();
+
+    //At this stage: the object 'vid' is pointed with no smartpointer, he must have been died then (verified with the destructor)
+
+
+
 
 
     
