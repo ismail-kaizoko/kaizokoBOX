@@ -21,12 +21,13 @@ class Group : public std::list<MultimediaPtr> {
     std::string name{};
     
     public:
-    std::string getName() const{return name;}
 
+    std::string getGroupName() const {return name;}
+    
     void display(ostream & out) const {
         int i = 0;
         for (auto & it : *this) {
-            std::string groupName = this->getName();
+            std::string groupName = this->getGroupName();
             out << "This is the Group : " <<  groupName<< endl;
             out << "Information about element : " << i <<endl;
             it->display(out); 
@@ -35,7 +36,7 @@ class Group : public std::list<MultimediaPtr> {
             out << endl << endl ;
     }
 
-    std::string getGroupName() const {return name;}
+
 
 
 };

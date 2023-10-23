@@ -11,7 +11,7 @@ using FilmSmartSPtr    =std::shared_ptr<Film>;
 
 
 
-void display(int n, const int * tab);
+void displayTab(int n, const int * tab);
 
 
 int main(int argc, const char* argv[])
