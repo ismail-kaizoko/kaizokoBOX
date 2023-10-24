@@ -4,19 +4,24 @@
 #include "Video.h"
 
 class Film : public Video{
+    friend class Dataset;
+
     private:
     int chapterNumber{};   //  we store the array length to make implementations easier
     int *chapters{} ;
 
 
-    public:
-    //constructor and destructor implementation
+    protected:
+    //constructor and destructor implementation 
+    //Constructors are set preotected to be private outside,in order to enable access rights outside the class Dataset, but be able to be implemented by subclasses
     Film() : Video(), chapterNumber(0), chapters(nullptr){};
     Film(string name, string pathName, float duration, int n, int * tab ): 
                 Video(name, pathName, duration) {setChapters(n, tab);}
     ~Film() {delete[] chapters;}  // necessity to implement the destructor since the instance variable is allocated in the heap
 
 
+    
+    public:
     //getters and setters implementation
     void setChapters(int n, const int * tab){
         //Check the preconditions
@@ -46,9 +51,6 @@ class Film : public Video{
         Video::display(out) ;
         out << "chapter number" << chapterNumber << endl ;
     }
-
-
-
 
 
 };

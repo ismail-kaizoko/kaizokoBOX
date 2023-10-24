@@ -4,13 +4,19 @@
 
 
 class Video: public Multimedia{
+    friend class Dataset;
+
+    
     private:
     float duration;
 
-    public:
+    protected:
+    //Constructors are set preotected to be private outside,in order to enable access rights outside the class Dataset, but be able to be implemented by subclasses
     Video() : Multimedia(), duration(0) {}
     Video(string name, string pathName, int d) : Multimedia(name, pathName),duration(d) {}
-    
+
+    public:
+
     void setDuration(float duration) {this->duration = duration;}
     float getDuration()  const {return duration;}
 

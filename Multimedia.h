@@ -8,17 +8,22 @@
 using namespace std;
  
 class Multimedia {
+    friend class Dataset;
 
-private:
+
+
+    private:
     string name{};
     string pathName{};
 
-public:
+    protected:
     //constructors and destructor declaration
     Multimedia();
     Multimedia(string name, string pathName);
     virtual ~Multimedia();  //necessity of virtual to activate the dynamic linking
+    // They are in private in order to give Access rights to the class : Dataset 
 
+    public:
     //setters and getters declaration
     void setName(string name);
     void setPathName(string pathName);

@@ -11,17 +11,22 @@
 #include <list>
 #include <memory>
 
-
-
-
 using MultimediaPtr = std::shared_ptr<Multimedia>;
 
+
+
 class Group : public std::list<MultimediaPtr> {
+    friend class Dataset;
+
+    
     private:
     std::string name{};
-    
-    public:
 
+    Group(): std::list<MultimediaPtr>(){}
+
+
+
+    public:
     std::string getGroupName() const {return name;}
     
     void display(ostream & out) const {

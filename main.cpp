@@ -49,7 +49,7 @@ int main(int argc, const char* argv[])
     delete[] duration2;
     delete[] film;
     display(durationCopy, copy);
-*/
+
 
     int duration[5] = {0,7,10,15,20};
     FilmSmartSPtr film(new Film("movie", "/home/movie.mkv", 20, 5, duration) ) ;
@@ -84,7 +84,7 @@ int main(int argc, const char* argv[])
 
     //At this stage: the object 'vid' is pointed with no smartpointer, he must have been died then (verified with the destructor)
 
-
+    */
 
 
 
@@ -92,9 +92,6 @@ int main(int argc, const char* argv[])
 
 
     
-
-
-
 
     
     return 0;
