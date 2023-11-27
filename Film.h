@@ -4,7 +4,7 @@
 #include "Video.h"
 
 class Film : public Video{
-    friend class Dataset;
+    friend class MediaMaster;
 
     private:
     int chapterNumber{};   //  we store the array length to make implementations easier
@@ -17,11 +17,12 @@ class Film : public Video{
     Film() : Video(), chapterNumber(0), chapters(nullptr){};
     Film(string name, string pathName, float duration, int n, int * tab ): 
                 Video(name, pathName, duration) {setChapters(n, tab);}
-    ~Film() {delete[] chapters;}  // necessity to implement the destructor since the instance variable is allocated in the heap
 
 
     
     public:
+    ~Film() {delete[] chapters;}  // necessity to implement the destructor since the instance variable is allocated in the heap
+
     //getters and setters implementation
     void setChapters(int n, const int * tab){
         //Check the preconditions
@@ -51,6 +52,7 @@ class Film : public Video{
         Video::display(out) ;
         out << "chapter number" << chapterNumber << endl ;
     }
+
 
 
 };

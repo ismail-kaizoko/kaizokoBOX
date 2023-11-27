@@ -8,7 +8,7 @@
 using namespace std;
  
 class Multimedia {
-    friend class Dataset;
+    friend class MediaMaster;
 
 
 

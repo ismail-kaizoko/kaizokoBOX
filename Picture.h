@@ -7,7 +7,7 @@
 
 
 class Picture : public Multimedia {
-    friend class Dataset;
+    friend class MediaMaster;
 
     
     private:

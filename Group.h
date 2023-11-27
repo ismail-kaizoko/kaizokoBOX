@@ -16,15 +16,14 @@ using MultimediaPtr = std::shared_ptr<Multimedia>;
 
 
 class Group : public std::list<MultimediaPtr> {
-    friend class Dataset;
+    friend class MediaMaster;
 
     
     private:
     std::string name{};
 
+    protected:
     Group(): std::list<MultimediaPtr>(){}
-
-
 
     public:
     std::string getGroupName() const {return name;}
